@@ -304,15 +304,6 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   }
 
-  .kicker {
-    font-family: var(--mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--acid);
-    margin: 0 0 0.9rem;
-  }
 
   h2.panel-title {
     font-family: var(--display);
@@ -324,14 +315,6 @@
     max-width: 22ch;
   }
 
-  .lede {
-    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-    line-height: 1.5;
-    color: var(--paper-dim);
-    max-width: var(--measure);
-    margin: -1rem 0 clamp(2rem, 4vw, 3rem);
-    font-style: italic;
-  }
 
   /* Entry grid --------------------------------------------------------- */
   .entries {
@@ -405,17 +388,6 @@
     white-space: nowrap;
   }
 
-  /* Claims whose source in the original deck could not be verified. */
-  .needs-cite {
-    font-family: var(--mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.04em;
-    color: var(--acid);
-    border: 1px dashed rgba(215, 242, 74, 0.4);
-    background: rgba(215, 242, 74, 0.07);
-    padding: 0.1rem 0.4rem;
-    white-space: nowrap;
-  }
 
   /* Reflection --------------------------------------------------------- */
   .reflect { display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); }
@@ -444,51 +416,7 @@
   }
 
   /* Sources ------------------------------------------------------------ */
-  .sources { list-style: none; margin: 0; padding: 0; max-width: 60rem; }
-  .sources li {
-    border-top: 1px solid var(--rule);
-    padding: 1.25rem 0;
-    display: grid;
-    grid-template-columns: 2.5rem 1fr;
-    gap: 0 1rem;
-  }
-  .sources li::before {
-    content: attr(data-n);
-    font-family: var(--mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: var(--acid-deep);
-    padding-top: 0.4rem;
-  }
-  .sources h3 {
-    margin: 0 0 0.35rem;
-    font-family: var(--body);
-    font-weight: 500;
-    font-size: 1.0625rem;
-    color: var(--paper);
-  }
-  .sources a {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--paper-faint);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(244, 240, 230, 0.2);
-    word-break: break-word;
-    transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
-  }
-  .sources a:hover { color: var(--acid); border-bottom-color: var(--acid); }
-  .sources .note {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--paper-faint);
-  }
 
-  .refs-intro {
-    max-width: var(--measure);
-    color: var(--paper-dim);
-    font-style: italic;
-    margin: -1rem 0 clamp(1.5rem, 3vw, 2.25rem);
-  }
 
   .refs {
     margin: 0;
@@ -497,28 +425,6 @@
     max-width: 60rem;
   }
 
-  .gap {
-    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
-    padding: clamp(1.25rem, 3vw, 1.75rem);
-    border: 1px solid rgba(215, 242, 74, 0.28);
-    background: rgba(215, 242, 74, 0.05);
-    max-width: 60rem;
-  }
-  .gap h3 {
-    font-family: var(--mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--acid);
-    margin: 0 0 0.9rem;
-  }
-  .gap p {
-    margin: 0;
-    color: var(--paper-dim);
-    font-size: 0.9375rem;
-    max-width: 68ch;
-  }
   .refs h3 {
     font-family: var(--mono);
     font-size: 0.6875rem;
@@ -595,13 +501,11 @@
 <div class="tabbar">
   <div class="tablist" role="tablist" aria-label="Presentation sections">
     <button class="tab" role="tab" id="tab-background"    aria-controls="panel-background"    aria-selected="true"><span class="num">01</span>Background</button>
-    <button class="tab" role="tab" id="tab-fame"          aria-controls="panel-fame"          aria-selected="false" tabindex="-1"><span class="num">02</span>Reason for Fame</button>
-    <button class="tab" role="tab" id="tab-adhd"          aria-controls="panel-adhd"          aria-selected="false" tabindex="-1"><span class="num">03</span>ADHD</button>
-    <button class="tab" role="tab" id="tab-identity"      aria-controls="panel-identity"      aria-selected="false" tabindex="-1"><span class="num">04</span>Identity</button>
-    <button class="tab" role="tab" id="tab-character"     aria-controls="panel-character"     aria-selected="false" tabindex="-1"><span class="num">05</span>Character</button>
-    <button class="tab" role="tab" id="tab-relationships" aria-controls="panel-relationships" aria-selected="false" tabindex="-1"><span class="num">06</span>Relationships</button>
-    <button class="tab" role="tab" id="tab-reflection"    aria-controls="panel-reflection"    aria-selected="false" tabindex="-1"><span class="num">07</span>Reflection</button>
-    <button class="tab" role="tab" id="tab-sources"       aria-controls="panel-sources"       aria-selected="false" tabindex="-1"><span class="num">08</span>Sources</button>
+    <button class="tab" role="tab" id="tab-music"         aria-controls="panel-music"         aria-selected="false" tabindex="-1"><span class="num">02</span>Music</button>
+    <button class="tab" role="tab" id="tab-business"      aria-controls="panel-business"      aria-selected="false" tabindex="-1"><span class="num">03</span>Business</button>
+    <button class="tab" role="tab" id="tab-adhd"          aria-controls="panel-adhd"          aria-selected="false" tabindex="-1"><span class="num">04</span>ADHD</button>
+    <button class="tab" role="tab" id="tab-reflection"    aria-controls="panel-reflection"    aria-selected="false" tabindex="-1"><span class="num">05</span>Reflection</button>
+    <button class="tab" role="tab" id="tab-references"    aria-controls="panel-references"    aria-selected="false" tabindex="-1"><span class="num">06</span>References</button>
   </div>
 </div>
 
@@ -644,96 +548,68 @@
       </div>
     </section>
 
-    <!-- 02 — Reason for Fame -->
-    <section class="panel" id="panel-fame" role="tabpanel" aria-labelledby="tab-fame" tabindex="0" hidden>
-      <h2 class="panel-title">Reason for Fame</h2>
+    <!-- 02 — Music -->
+    <section class="panel" id="panel-music" role="tabpanel" aria-labelledby="tab-music" tabindex="0" hidden>
+      <h2 class="panel-title">Music</h2>
       <div class="entries">
         <article class="entry">
-          <h3>Music</h3>
-          <p>Founded the Black Eyed Peas in 1995 with apl.de.ap and Taboo. The group has won multiple Grammy Awards and topped charts with songs like “I Gotta Feeling” and “Where Is the Love?” He’s also a solo artist and producer for artists like Michael Jackson, Britney Spears, and Usher. <span class="cite">(AllMusic, n.d.; Recording Academy, n.d.)</span></p>
+          <h3>The Black Eyed Peas</h3>
+          <p>The group took its name in 1995, when will.i.am, apl.de.ap, and Taboo renamed their earlier act Atban Klann. <em>Behind the Front</em> (1998) and <em>Bridging the Gap</em> (2000) built a following on the LA hip-hop circuit, but it was Fergie’s arrival in 2002 that pushed them to global stardom. <em>Elephunk</em> (2003) produced “Where Is the Love?” with Justin Timberlake, which reached No. 8 on the Billboard Hot 100, and the run continued through <em>Monkey Business</em> (2005), <em>The E.N.D.</em> (2009), <em>The Beginning</em> (2010), and <em>Translation</em> (2020), with hits including “Let’s Get It Started,” “Boom Boom Pow,” and “I Gotta Feeling.” The group has sold more than 76 million albums and won six Grammy Awards. <span class="cite">(AllMusic, n.d.; Biography.com Editors, 2020; Scavieli, 2024)</span></p>
         </article>
         <article class="entry">
-          <h3>Technology</h3>
-          <p>Founded i.am+, a consumer tech company focused on wearables. His song “Reach for the Stars” was streamed from Mars via NASA’s Curiosity Rover — a first. In 2024 he completed Harvard Business School’s Executive Education program. <span class="cite">(Dorisca, 2024; National Today, n.d.)</span></p>
+          <h3>Solo work and production</h3>
+          <p>Alongside the group he has kept a solo catalogue — <em>Lost Change</em> (2001), <em>Songs About Girls</em> (2007), and <em>#willpower</em> (2013), the last built around collaborations with Justin Bieber, Miley Cyrus, and Britney Spears. He is at least as prolific behind the desk as in front of it, producing for Michael Jackson, Mariah Carey, Britney Spears, and Usher. <span class="cite">(AllMusic, n.d.; Biography.com Editors, 2020; Recording Academy, n.d.)</span></p>
         </article>
         <article class="entry">
-          <h3>Philanthropy</h3>
-          <p>Founded the i.am Angel Foundation in 2009, which funds STEAM education and college scholarships for underserved students, with a focus on his home neighborhood of Boyle Heights. <span class="cite">(The Understood Team, n.d.)</span></p>
+          <h3>Television</h3>
+          <p>He has served as a coach on <em>The Voice UK</em> and <em>The Voice Australia</em>, and has appeared on <em>American Idol</em> and <em>The X Factor</em> — work that put him in front of audiences who had never bought one of his records, and made mentoring a public part of his career rather than a private one. <span class="cite">(Biography.com Editors, 2020)</span></p>
         </article>
       </div>
     </section>
 
-    <!-- 03 — ADHD Experience -->
+    <!-- 03 — Business -->
+    <section class="panel" id="panel-business" role="tabpanel" aria-labelledby="tab-business" tabindex="0" hidden>
+      <h2 class="panel-title">Business</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3>i.am+</h3>
+          <p>He founded i.am+, a consumer electronics company aimed at wearables. Its releases included the Puls smartwatch and a line of iPhone accessories. Neither found a commercial foothold — a reminder that his business record is a record of attempts, not only of wins. <span class="cite">(Biography.com Editors, 2020)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Ventures and partnerships</h3>
+          <p>Beyond his own company he launched Ekocycle with Coca-Cola, promoting consumer products made from recycled material; held a stake in Beats Electronics; and took a post as director of creative innovation at Intel. <span class="cite">(Biography.com Editors, 2020)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Music as technology</h3>
+          <p>In 2012 his song “Reach for the Stars” was broadcast from the surface of Mars by NASA’s Curiosity rover — the first song streamed from another planet, and a clear statement of where he wanted his music to sit relative to technology. <span class="cite">(National Today, n.d.)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Going back for the credential</h3>
+          <p>Having signed a record deal instead of finishing high school, he commuted to Cambridge for three years and completed Harvard Business School’s Owner/President Management program in October 2024 — by his own account his first time walking a graduation stage. <span class="cite">(Dorisca, 2024)</span></p>
+        </article>
+        <article class="entry">
+          <h3>i.am Angel Foundation</h3>
+          <p>He launched the i.am Angel Foundation in 2009 to fund STEAM education, college preparation, and scholarships, concentrated on the Boyle Heights neighborhood he grew up in. <span class="cite">(National Today, n.d.)</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04 — ADHD -->
     <section class="panel" id="panel-adhd" role="tabpanel" aria-labelledby="tab-adhd" tabindex="0" hidden>
       <h2 class="panel-title">ADHD</h2>
       <blockquote>
-        Teachers pushed him to “focus better” because of his hyperactivity.
-        <cite>as recalled in “The Disruptors” (2022)</cite>
+        It’s hard to keep your attention, and you can’t sit still and you’re always moving and thinking about a whole bunch of things. But those traits work well for me in studios and in meetings about creative ideas.
+        <cite>will.i.am, quoted in Understood.org</cite>
       </blockquote>
       <div class="prose">
-        <p><strong>In his own words.</strong> As a kid, teachers pushed him to “focus better” because of his hyperactivity, he recalled in the 2022 ADHD documentary “The Disruptors.” He has described struggling to sit still and to hold his attention on one thing at a time. <span class="needs-cite">citation needed</span></p>
-        <p><strong>How he copes.</strong> will.i.am has said music itself helps quiet his mind and gives his racing thoughts somewhere to go, describing it as a way of managing his ADHD day to day. <span class="cite">(The Understood Team, n.d.)</span></p>
+        <p><strong>The early struggle.</strong> As a child he was known simply as “hyper.” Holding his attention on any one thing was difficult, and the restlessness that later became useful in a studio first showed up in a classroom, where it read as a problem to be corrected rather than a trait to be used. <span class="cite">(The Understood Team, n.d.)</span></p>
+        <p><strong>Turning it into an asset.</strong> The reframing came from noticing that the same traits behaved differently in different rooms. Difficulty sitting still and a mind that jumps between many things at once are obstacles in a classroom and advantages in a recording session or a creative meeting — and his parallel careers in music, television, and technology are, in effect, what a mind like that looks like when it is given enough to do. <span class="cite">(The Understood Team, n.d.)</span></p>
+        <p><strong>How he manages it.</strong> His answer is music itself. He has described it as a way to “keep my attention disorder in order,” saying it stops his mind from wandering because he can stay inside the music, and that it brings control to his thoughts. The tool and the career turn out to be the same thing. <span class="cite">(The Understood Team, n.d.)</span></p>
+        <p><strong>Talking about it openly.</strong> He has discussed his ADHD publicly and at length — including a 2023 long-form interview covering his creativity and mental health — which matters because a diagnosis that is usually described in terms of deficit is being described instead by someone who credits it for his work. His own summary of the approach: “For every obstacle, there’s some type of solution.” <span class="cite">(The Diary of a CEO, 2023; The Understood Team, n.d.)</span></p>
       </div>
     </section>
 
-    <!-- 04 — Disability & Identity -->
-    <section class="panel" id="panel-identity" role="tabpanel" aria-labelledby="tab-identity" tabindex="0" hidden>
-      <h2 class="panel-title">Identity</h2>
-      <div class="entries">
-        <article class="entry">
-          <h3>Creative energy</h3>
-          <p>He’s described the restlessness and constant idea-jumping of ADHD as an asset in the studio and in creative meetings — traits visible across his parallel careers in music, tech, and business. <span class="cite">(The Understood Team, n.d.)</span></p>
-        </article>
-        <article class="entry">
-          <h3>Advocacy</h3>
-          <p>His i.am Angel Foundation funds STEAM education and college scholarships for underserved kids, reflecting his own path from a low-income neighborhood into opportunity. <span class="cite">(National Today, n.d.; The Understood Team, n.d.)</span></p>
-        </article>
-        <article class="entry">
-          <h3>Openness</h3>
-          <p>By discussing his ADHD openly in interviews <span class="cite">(The Diary of a CEO, 2023)</span> and in the 2022 documentary “The Disruptors” <span class="needs-cite">citation needed</span>, he’s helped normalize the diagnosis for other public figures and fans.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- 05 — Character -->
-    <section class="panel" id="panel-character" role="tabpanel" aria-labelledby="tab-character" tabindex="0" hidden>
-      <h2 class="panel-title">Character</h2>
-      <div class="entries">
-        <article class="entry">
-          <h3>Strengths</h3>
-          <p>Relentless work ethic; comfort with risk-taking; curiosity that spans music, fashion, and technology; strong sense of giving back to his community.</p>
-        </article>
-        <article class="entry">
-          <h3>Opportunities</h3>
-          <p>Fame and financial success opened doors to found companies and a foundation — platforms most artists never get access to.</p>
-        </article>
-        <article class="entry">
-          <h3>Challenges</h3>
-          <p>Growing up in poverty; navigating school as a kid who learned differently; balancing multiple demanding careers at once.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- 06 — Relationships -->
-    <section class="panel" id="panel-relationships" role="tabpanel" aria-labelledby="tab-relationships" tabindex="0" hidden>
-      <h2 class="panel-title">Relationships</h2>
-      <div class="entries">
-        <article class="entry">
-          <h3>His mother, Debra</h3>
-          <p>Raised him alone after his father left; enrolled him in a charter school and steered him away from local gangs. He calls her a constant source of encouragement. <span class="cite">(The Understood Team, n.d.)</span></p>
-        </article>
-        <article class="entry">
-          <h3>apl.de.ap &amp; Taboo</h3>
-          <p>Met apl.de.ap at Palisades Charter High School; the two later co-founded the Black Eyed Peas with Taboo in 1995. <span class="cite">(AllMusic, n.d.; Scavieli, 2024)</span></p>
-        </article>
-        <article class="entry">
-          <h3>Fergie</h3>
-          <p>Joined the Black Eyed Peas in 2002, becoming a key vocalist during the group’s biggest commercial run. <span class="cite">(AllMusic, n.d.; Scavieli, 2024)</span></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- 07 — Reflection -->
+    <!-- 05 — Reflection -->
     <section class="panel" id="panel-reflection" role="tabpanel" aria-labelledby="tab-reflection" tabindex="0" hidden>
       <h2 class="panel-title">Reflection</h2>
       <div class="reflect">
@@ -752,13 +628,10 @@
       </div>
     </section>
 
-    <!-- 08 — Sources -->
-    <section class="panel" id="panel-sources" role="tabpanel" aria-labelledby="tab-sources" tabindex="0" hidden>
-      <h2 class="panel-title">Sources</h2>
-      <p class="refs-intro">All sources are listed below in APA 7th edition format. In-text citations throughout the site correspond to these entries.</p>
-
+    <!-- 06 — References -->
+    <section class="panel" id="panel-references" role="tabpanel" aria-labelledby="tab-references" tabindex="0" hidden>
+      <h2 class="panel-title">References</h2>
       <div class="refs">
-        <h3>References</h3>
         <p>AllMusic. (n.d.). <em>will.i.am</em>. AllMusic. <a href="https://www.allmusic.com/artist/william-mn0000691648" target="_blank" rel="noopener">https://www.allmusic.com/artist/william-mn0000691648</a></p>
 
         <p>Biography.com Editors. (2020, June 19). <em>Will.i.am: Songs, movies &amp; albums</em>. Biography. <a href="https://www.biography.com/musicians/will-i-am" target="_blank" rel="noopener">https://www.biography.com/musicians/will-i-am</a></p>
@@ -774,11 +647,6 @@
         <p>Scavieli, T. (2024, July 14). <em>Complete list of Black Eyed Peas band members</em>. ClassicRockHistory.com. <a href="https://www.classicrockhistory.com/complete-list-of-black-eyed-peas-band-members/" target="_blank" rel="noopener">https://www.classicrockhistory.com/complete-list-of-black-eyed-peas-band-members/</a></p>
 
         <p>The Understood Team. (n.d.). <em>Celebrity spotlight: Why will.i.am says ADHD fuels his creativity</em>. Understood. <a href="https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity" target="_blank" rel="noopener">https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity</a></p>
-      </div>
-
-      <div class="gap">
-        <h3>Still to resolve</h3>
-        <p>Two claims about the 2022 documentary “The Disruptors” are marked <span class="needs-cite">citation needed</span> on the ADHD and Identity tabs. The deck attributed them to Stamford Advocate coverage via PressReader, but that article could not be located to confirm an author, date, or URL — so no APA entry could be written for it. Either find the article and add it, or cut the claims.</p>
       </div>
     </section>
 
