@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>will.i.am — Famous People with Disabilities</title>
+<meta name="description" content="A profile of will.i.am: musician, producer, tech entrepreneur, living with ADHD. By Walter Lee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #0d0c0b;
+    --ink-soft:   #161513;
+    --paper:      #f4f0e6;
+    --paper-dim:  rgba(244, 240, 230, 0.62);
+    --paper-faint:rgba(244, 240, 230, 0.34);
+    --acid:       #d7f24a;
+    --acid-deep:  #a8bf2e;
+    --rule:       rgba(244, 240, 230, 0.14);
+    --display: "Archivo Black", "Helvetica Neue", sans-serif;
+    --body:    "Newsreader", Georgia, serif;
+    --mono:    "JetBrains Mono", ui-monospace, monospace;
+    --measure: 64ch;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Grain + glow atmosphere ------------------------------------------- */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 80% -10%, rgba(215, 242, 74, 0.10), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(215, 242, 74, 0.05), transparent 70%);
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.16;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .shell {
+    position: relative;
+    z-index: 1;
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  /* Masthead ----------------------------------------------------------- */
+  header.masthead {
+    padding: clamp(3rem, 8vw, 6rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+    align-items: start;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+  @media (max-width: 62rem) {
+    header.masthead { grid-template-columns: 1fr; }
+  }
+
+  /* Video ------------------------------------------------------------- */
+  .video { min-width: 0; }
+  .video-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--paper-faint);
+    margin: 0 0 0.7rem;
+  }
+  .video-label .live {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--acid);
+    animation: pulse 2s var(--ease) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.25; }
+  }
+  .video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule);
+    background: #000;
+    overflow: hidden;
+  }
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-caption {
+    margin: 0.7rem 0 0;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    color: var(--paper-faint);
+  }
+  .video-caption b {
+    color: var(--paper-dim);
+    font-weight: 400;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin: 0 0 clamp(1rem, 3vw, 1.75rem);
+  }
+
+  h1.wordmark {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(3.25rem, 13vw, 9.5rem);
+    line-height: 0.84;
+    letter-spacing: -0.04em;
+    margin: 0;
+    text-transform: lowercase;
+  }
+  h1.wordmark .dot { color: var(--acid); }
+
+  .subline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1.25rem;
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+  }
+  .subline p {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--paper-dim);
+    font-style: italic;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--acid);
+    padding: 0.35rem 0.7rem;
+    font-style: normal;
+  }
+  .byline {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper-faint);
+    margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  }
+
+  /* Tabs --------------------------------------------------------------- */
+  .tabbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(13, 12, 11, 0.86);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .tablist {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  }
+  .tablist::-webkit-scrollbar { display: none; }
+
+  .tab {
+    flex: 0 0 auto;
+    appearance: none;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--paper-faint);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1.15rem clamp(0.6rem, 1.1vw, 1.05rem);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+  .tab .num {
+    color: var(--acid-deep);
+    margin-right: 0.45rem;
+    transition: color 0.25s var(--ease);
+  }
+  .tab:hover { color: var(--paper); }
+  .tab[aria-selected="true"] {
+    color: var(--paper);
+    border-bottom-color: var(--acid);
+  }
+  .tab[aria-selected="true"] .num { color: var(--acid); }
+  .tab:focus-visible {
+    outline: 2px solid var(--acid);
+    outline-offset: -4px;
+  }
+
+  /* Panels ------------------------------------------------------------- */
+  main { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(4rem, 10vw, 8rem); }
+
+  .panel[hidden] { display: none; }
+  .panel:focus { outline: none; }
+
+  .panel > * {
+    animation: rise 0.55s var(--ease) both;
+  }
+  .panel > *:nth-child(1) { animation-delay: 0.02s; }
+  .panel > *:nth-child(2) { animation-delay: 0.08s; }
+  .panel > *:nth-child(3) { animation-delay: 0.14s; }
+  .panel > *:nth-child(4) { animation-delay: 0.20s; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin: 0 0 0.9rem;
+  }
+
+  h2.panel-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 5vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
+    max-width: 22ch;
+  }
+
+  .lede {
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--paper-dim);
+    max-width: var(--measure);
+    margin: -1rem 0 clamp(2rem, 4vw, 3rem);
+    font-style: italic;
+  }
+
+  /* Entry grid --------------------------------------------------------- */
+  .entries {
+    display: grid;
+    gap: clamp(1.75rem, 4vw, 3rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  }
+
+  .entry {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.4rem;
+    position: relative;
+  }
+  .entry::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--acid);
+  }
+  .entry h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.0625rem;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.7rem;
+  }
+  .entry p {
+    margin: 0;
+    color: var(--paper-dim);
+    max-width: 46ch;
+  }
+
+  /* Prose / quotes ----------------------------------------------------- */
+  .prose { max-width: var(--measure); }
+  .prose p { color: var(--paper-dim); }
+  .prose p + p { margin-top: 1.25rem; }
+  .prose strong {
+    color: var(--paper);
+    font-weight: 500;
+  }
+
+  blockquote {
+    margin: clamp(2rem, 4vw, 3rem) 0;
+    padding-left: clamp(1.25rem, 3vw, 2rem);
+    border-left: 2px solid var(--acid);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    line-height: 1.35;
+    color: var(--paper);
+    font-style: italic;
+    max-width: 30ch;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper-faint);
+  }
+
+  .cite {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--acid-deep);
+    white-space: nowrap;
+  }
+
+  /* Reflection --------------------------------------------------------- */
+  .reflect { display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); }
+  .reflect-item {
+    border: 1px solid var(--rule);
+    padding: clamp(1.35rem, 3vw, 2rem);
+  }
+  .reflect-item q {
+    display: block;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    line-height: 1.4;
+    color: var(--paper);
+    quotes: none;
+    max-width: 52ch;
+  }
+  .todo {
+    margin: 1.1rem 0 0;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: var(--acid);
+    background: rgba(215, 242, 74, 0.07);
+    border: 1px dashed rgba(215, 242, 74, 0.35);
+    padding: 0.7rem 0.85rem;
+  }
+
+  /* Sources ------------------------------------------------------------ */
+  .sources { list-style: none; margin: 0; padding: 0; max-width: 60rem; }
+  .sources li {
+    border-top: 1px solid var(--rule);
+    padding: 1.25rem 0;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0 1rem;
+  }
+  .sources li::before {
+    content: attr(data-n);
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--acid-deep);
+    padding-top: 0.4rem;
+  }
+  .sources h3 {
+    margin: 0 0 0.35rem;
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 1.0625rem;
+    color: var(--paper);
+  }
+  .sources a {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--paper-faint);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244, 240, 230, 0.2);
+    word-break: break-word;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+  .sources a:hover { color: var(--acid); border-bottom-color: var(--acid); }
+  .sources .note {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--paper-faint);
+  }
+
+  .refs {
+    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+    border-top: 1px solid var(--rule);
+    max-width: 60rem;
+  }
+  .refs h3 {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin: 0 0 1.5rem;
+  }
+  .refs p {
+    color: var(--paper-dim);
+    font-size: 0.9375rem;
+    padding-left: 2.5rem;
+    text-indent: -2.5rem;
+    margin: 0 0 1rem;
+  }
+  .refs a { color: var(--paper-faint); text-decoration: underline; text-underline-offset: 2px; }
+  .refs a:hover { color: var(--acid); }
+
+  /* Footer ------------------------------------------------------------- */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 0 3rem;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper-faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    justify-content: space-between;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Famous People with Disabilities</p>
+      <h1 class="wordmark">will<span class="dot">.</span>i<span class="dot">.</span>am</h1>
+      <div class="subline">
+        <p>Musician · Producer · Tech Entrepreneur</p>
+        <span class="badge">Living with ADHD</span>
+      </div>
+      <p class="byline">by Walter Lee</p>
+    </div>
+
+    <div class="video">
+      <p class="video-label"><span class="live"></span>Now playing</p>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/DGIgXP9SvB8?autoplay=1&mute=1&loop=1&playlist=DGIgXP9SvB8&playsinline=1&rel=0&modestbranding=1"
+          title="will.i.am — #thatPOWER ft. Justin Bieber (official video)"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p class="video-caption"><b>“#thatPOWER” ft. Justin Bieber</b> — starts muted; click the video for sound.</p>
+    </div>
+  </header>
+</div>
+
+<div class="tabbar">
+  <div class="tablist" role="tablist" aria-label="Presentation sections">
+    <button class="tab" role="tab" id="tab-fame"          aria-controls="panel-fame"          aria-selected="true"><span class="num">01</span>Reason for Fame</button>
+    <button class="tab" role="tab" id="tab-background"    aria-controls="panel-background"    aria-selected="false" tabindex="-1"><span class="num">02</span>Background</button>
+    <button class="tab" role="tab" id="tab-adhd"          aria-controls="panel-adhd"          aria-selected="false" tabindex="-1"><span class="num">03</span>ADHD</button>
+    <button class="tab" role="tab" id="tab-identity"      aria-controls="panel-identity"      aria-selected="false" tabindex="-1"><span class="num">04</span>Identity</button>
+    <button class="tab" role="tab" id="tab-character"     aria-controls="panel-character"     aria-selected="false" tabindex="-1"><span class="num">05</span>Character</button>
+    <button class="tab" role="tab" id="tab-relationships" aria-controls="panel-relationships" aria-selected="false" tabindex="-1"><span class="num">06</span>Relationships</button>
+    <button class="tab" role="tab" id="tab-reflection"    aria-controls="panel-reflection"    aria-selected="false" tabindex="-1"><span class="num">07</span>Reflection</button>
+    <button class="tab" role="tab" id="tab-sources"       aria-controls="panel-sources"       aria-selected="false" tabindex="-1"><span class="num">08</span>Sources</button>
+  </div>
+</div>
+
+<div class="shell">
+  <main>
+
+    <!-- 01 — Reason for Fame -->
+    <section class="panel" id="panel-fame" role="tabpanel" aria-labelledby="tab-fame" tabindex="0">
+      <p class="kicker">Key Element 1 — Reason for Fame</p>
+      <h2 class="panel-title">Who is will.i.am, and why is he well known?</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3>Music</h3>
+          <p>Founded the Black Eyed Peas in 1995 with apl.de.ap and Taboo. The group has won multiple Grammy Awards and topped charts with songs like “I Gotta Feeling” and “Where Is the Love?” He’s also a solo artist and producer for artists like Michael Jackson, Britney Spears, and Usher. <span class="cite">(GRAMMY.com, AllMusic)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Technology</h3>
+          <p>Founded i.am+, a consumer tech company focused on wearables. His song “Reach for the Stars” was streamed from Mars via NASA’s Curiosity Rover — a first. In 2024 he completed Harvard Business School’s Executive Education program. <span class="cite">(National Today, AfroTech)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Philanthropy</h3>
+          <p>Founded the i.am Angel Foundation in 2009, which funds STEAM education and college scholarships for underserved students, with a focus on his home neighborhood of Boyle Heights. <span class="cite">(Understood.org)</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 02 — Background -->
+    <section class="panel" id="panel-background" role="tabpanel" aria-labelledby="tab-background" tabindex="0" hidden>
+      <p class="kicker">Important Events — Background &amp; Childhood</p>
+      <h2 class="panel-title">Where he came from</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3>Born</h3>
+          <p>William James Adams Jr., March 15, 1975, in Los Angeles — raised in the Estrada Courts housing projects, Boyle Heights (East LA). <span class="cite">(National Today)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Family</h3>
+          <p>Raised solely by his mother, Debra; he has never met his father, who left the family. He has said, “My mom encouraged me in everything I did.”</p>
+        </article>
+        <article class="entry">
+          <h3>School</h3>
+          <p>His mother enrolled him in Palisades Charter High School, where he met Allan Pineda (apl.de.ap) — steering him away from local gang activity.</p>
+        </article>
+        <article class="entry">
+          <h3>Turning point</h3>
+          <p>Was performing with a rap group by the eighth grade. That group evolved into the Black Eyed Peas, formed in 1995 with apl.de.ap and Taboo. <span class="cite">(Biography.com, AllMusic)</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 — ADHD Experience -->
+    <section class="panel" id="panel-adhd" role="tabpanel" aria-labelledby="tab-adhd" tabindex="0" hidden>
+      <p class="kicker">Key Element 2 — Disability Experience</p>
+      <h2 class="panel-title">His experience with ADHD</h2>
+      <blockquote>
+        Teachers pushed him to “focus better” because of his hyperactivity.
+        <cite>as recalled in “The Disruptors” (2022)</cite>
+      </blockquote>
+      <div class="prose">
+        <p><strong>In his own words.</strong> As a kid, teachers pushed him to “focus better” because of his hyperactivity, he recalled in the 2022 ADHD documentary “The Disruptors.” He has described struggling to sit still and to hold his attention on one thing at a time.</p>
+        <p><strong>How he copes.</strong> will.i.am has said music itself helps quiet his mind and gives his racing thoughts somewhere to go, describing it as a way of managing his ADHD day to day.</p>
+      </div>
+    </section>
+
+    <!-- 04 — Disability & Identity -->
+    <section class="panel" id="panel-identity" role="tabpanel" aria-labelledby="tab-identity" tabindex="0" hidden>
+      <p class="kicker">Disability &amp; Identity</p>
+      <h2 class="panel-title">How ADHD shows up in his work</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3>Creative energy</h3>
+          <p>He’s described the restlessness and constant idea-jumping of ADHD as an asset in the studio and in creative meetings — traits visible across his parallel careers in music, tech, and business. <span class="cite">(Understood.org)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Advocacy</h3>
+          <p>His i.am Angel Foundation funds STEAM education and college scholarships for underserved kids, reflecting his own path from a low-income neighborhood into opportunity. <span class="cite">(Understood.org, National Today)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Openness</h3>
+          <p>By discussing his ADHD in interviews and in the 2022 documentary “The Disruptors,” he’s helped normalize the diagnosis for other public figures and fans. <span class="cite">(PressReader/Stamford Advocate)</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05 — Character -->
+    <section class="panel" id="panel-character" role="tabpanel" aria-labelledby="tab-character" tabindex="0" hidden>
+      <p class="kicker">Key Element 5 — Strengths, Opportunities &amp; Challenges</p>
+      <h2 class="panel-title">Character &amp; personality</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3>Strengths</h3>
+          <p>Relentless work ethic; comfort with risk-taking; curiosity that spans music, fashion, and technology; strong sense of giving back to his community.</p>
+        </article>
+        <article class="entry">
+          <h3>Opportunities</h3>
+          <p>Fame and financial success opened doors to found companies and a foundation — platforms most artists never get access to.</p>
+        </article>
+        <article class="entry">
+          <h3>Challenges</h3>
+          <p>Growing up in poverty; navigating school as a kid who learned differently; balancing multiple demanding careers at once.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 06 — Relationships -->
+    <section class="panel" id="panel-relationships" role="tabpanel" aria-labelledby="tab-relationships" tabindex="0" hidden>
+      <p class="kicker">Key Element 4 — Significant Relationships</p>
+      <h2 class="panel-title">People who shaped his path</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3>His mother, Debra</h3>
+          <p>Raised him alone after his father left; enrolled him in a charter school and steered him away from local gangs. He calls her a constant source of encouragement. <span class="cite">(Understood.org)</span></p>
+        </article>
+        <article class="entry">
+          <h3>apl.de.ap &amp; Taboo</h3>
+          <p>Met apl.de.ap at Palisades Charter High School; the two later co-founded the Black Eyed Peas with Taboo in 1995. <span class="cite">(AllMusic, ClassicRockHistory.com)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Fergie</h3>
+          <p>Joined the Black Eyed Peas in 2002, becoming a key vocalist during the group’s biggest commercial run. <span class="cite">(AllMusic, ClassicRockHistory.com)</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 07 — Reflection -->
+    <section class="panel" id="panel-reflection" role="tabpanel" aria-labelledby="tab-reflection" tabindex="0" hidden>
+      <p class="kicker">Reflection &amp; Connection</p>
+      <h2 class="panel-title">Why this person, why now?</h2>
+      <div class="reflect">
+        <div class="reflect-item">
+          <q>What drew you to will.i.am specifically?</q>
+          <p class="todo">TO WRITE — this is the part only you can write.</p>
+        </div>
+        <div class="reflect-item">
+          <q>Do you relate to anything about his story — ADHD, growing up, or building something out of limited resources?</q>
+          <p class="todo">TO WRITE — this is the part only you can write.</p>
+        </div>
+        <div class="reflect-item">
+          <q>What does his story suggest about how society could better support people who learn differently?</q>
+          <p class="todo">TO WRITE — this is the part only you can write.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 — Sources -->
+    <section class="panel" id="panel-sources" role="tabpanel" aria-labelledby="tab-sources" tabindex="0" hidden>
+      <p class="kicker">Use of Resources &amp; Citations</p>
+      <h2 class="panel-title">Sources</h2>
+      <ul class="sources">
+        <li data-n="01">
+          <div>
+            <h3>Understood.org — “Celebrity spotlight: Why will.i.am says ADHD fuels his creativity”</h3>
+            <a href="https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity" target="_blank" rel="noopener">understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity</a>
+          </div>
+        </li>
+        <li data-n="02">
+          <div>
+            <h3>GRAMMY.com — official artist bio and awards history</h3>
+            <a href="https://www.grammy.com/artists/william" target="_blank" rel="noopener">grammy.com/artists/william</a>
+          </div>
+        </li>
+        <li data-n="03">
+          <div>
+            <h3>AllMusic — will.i.am biography and discography</h3>
+            <a href="https://www.allmusic.com/artist/william-mn0000691648" target="_blank" rel="noopener">allmusic.com/artist/william-mn0000691648</a>
+          </div>
+        </li>
+        <li data-n="04">
+          <div>
+            <h3>Stamford Advocate (via PressReader) — coverage of the ADHD documentary “The Disruptors” (2022)</h3>
+            <p class="note">pressreader.com — search “The Disruptors will.i.am ADHD”</p>
+          </div>
+        </li>
+        <li data-n="05">
+          <div>
+            <h3>AfroTech — on completing Harvard Business School’s Executive Education program</h3>
+            <p class="note">afrotech.com — search “will.i.am Harvard Business School”</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="refs">
+        <h3>References</h3>
+        <p>Biography.com Editors. (2020, June 19). <em>Will.i.am — Songs, movies &amp; albums</em>. Biography.com. <a href="https://www.biography.com/musicians/will-i-am" target="_blank" rel="noopener">https://www.biography.com/musicians/will-i-am</a></p>
+        <p>The Understood Team. (n.d.). <em>Celebrity spotlight: Why will.i.am says ADHD fuels his creativity</em>. Understood. <a href="https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity" target="_blank" rel="noopener">https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>will.i.am · Famous People with Disabilities</span>
+    <span>Photo credit: Biography.com Editors, 2020</span>
+  </footer>
+</div>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+
+  const tabForHash = () => tabs.find(t => t.id === 'tab-' + location.hash.slice(1));
+
+  function select(tab, { focus = true, updateHash = true } = {}) {
+    tabs.forEach((t, i) => {
+      const active = t === tab;
+      t.setAttribute('aria-selected', String(active));
+      t.tabIndex = active ? 0 : -1;
+      panels[i].hidden = !active;
+    });
+    if (focus) tab.focus();
+    if (updateHash) location.hash = tab.id.replace('tab-', '');
+    tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => select(tab, { focus: false }));
+  });
+
+  document.querySelector('[role="tablist"]').addEventListener('keydown', e => {
+    const i = tabs.indexOf(document.activeElement);
+    if (i === -1) return;
+    const keys = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 };
+    if (!(e.key in keys)) return;
+    e.preventDefault();
+    select(tabs[(keys[e.key] + tabs.length) % tabs.length]);
+  });
+
+  // Fragment navigation (deep link, Back/Forward, hand-edited URL) must move the tabs.
+  window.addEventListener('hashchange', () => {
+    const tab = tabForHash();
+    if (tab) select(tab, { focus: false, updateHash: false });
+  });
+
+  const fromHash = tabForHash();
+  if (fromHash) select(fromHash, { focus: false, updateHash: false });
+</script>
+
+</body>
+</html>
