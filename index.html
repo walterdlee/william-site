@@ -413,6 +413,18 @@
     white-space: nowrap;
   }
 
+  /* Claims whose source in the original deck could not be verified. */
+  .needs-cite {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--acid);
+    border: 1px dashed rgba(215, 242, 74, 0.4);
+    background: rgba(215, 242, 74, 0.07);
+    padding: 0.1rem 0.4rem;
+    white-space: nowrap;
+  }
+
   /* Reflection --------------------------------------------------------- */
   .reflect { display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); }
   .reflect-item {
@@ -479,11 +491,41 @@
     color: var(--paper-faint);
   }
 
+  .refs-intro {
+    max-width: var(--measure);
+    color: var(--paper-dim);
+    font-style: italic;
+    margin: -1rem 0 clamp(1.5rem, 3vw, 2.25rem);
+  }
+
   .refs {
-    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+    margin: 0;
     padding-top: clamp(1.5rem, 3vw, 2rem);
     border-top: 1px solid var(--rule);
     max-width: 60rem;
+  }
+
+  .gap {
+    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    border: 1px solid rgba(215, 242, 74, 0.28);
+    background: rgba(215, 242, 74, 0.05);
+    max-width: 60rem;
+  }
+  .gap h3 {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin: 0 0 0.9rem;
+  }
+  .gap p {
+    margin: 0;
+    color: var(--paper-dim);
+    font-size: 0.9375rem;
+    max-width: 68ch;
   }
   .refs h3 {
     font-family: var(--mono);
@@ -576,8 +618,7 @@
 
     <!-- 01 — Background -->
     <section class="panel" id="panel-background" role="tabpanel" aria-labelledby="tab-background" tabindex="0">
-      <p class="kicker">Important Events — Background &amp; Childhood</p>
-      <h2 class="panel-title">Where he came from</h2>
+      <h2 class="panel-title">Background</h2>
       <div class="bio">
         <div class="bio-figure">
           <figure class="portrait">
@@ -593,11 +634,11 @@
         <div class="entries">
         <article class="entry">
           <h3>Born</h3>
-          <p>William James Adams Jr., March 15, 1975, in Los Angeles — raised in the Estrada Courts housing projects, Boyle Heights (East LA). <span class="cite">(National Today)</span></p>
+          <p>William James Adams Jr., March 15, 1975, in Los Angeles — raised in the Estrada Courts housing projects, Boyle Heights (East LA). <span class="cite">(National Today, n.d.)</span></p>
         </article>
         <article class="entry">
           <h3>Family</h3>
-          <p>Raised solely by his mother, Debra; he has never met his father, who left the family. He has said, “My mom encouraged me in everything I did.”</p>
+          <p>will.i.am was raised solely by his mother, Debra, and has never met his father. Growing up, his mother made him wear suits to school, saying “You ain’t going to school with no play clothes, you’re going to school to learn.” <span class="cite">(The Diary of a CEO, 2023)</span></p>
         </article>
         <article class="entry">
           <h3>School</h3>
@@ -605,7 +646,7 @@
         </article>
         <article class="entry">
           <h3>Turning point</h3>
-          <p>Was performing with a rap group by the eighth grade. That group evolved into the Black Eyed Peas, formed in 1995 with apl.de.ap and Taboo. <span class="cite">(Biography.com, AllMusic)</span></p>
+          <p>Was performing with a rap group by the eighth grade. That group evolved into the Black Eyed Peas, formed in 1995 with apl.de.ap and Taboo. <span class="cite">(AllMusic, n.d.; Biography.com Editors, 2020)</span></p>
         </article>
         </div>
       </div>
@@ -613,62 +654,58 @@
 
     <!-- 02 — Reason for Fame -->
     <section class="panel" id="panel-fame" role="tabpanel" aria-labelledby="tab-fame" tabindex="0" hidden>
-      <p class="kicker">Key Element 1 — Reason for Fame</p>
-      <h2 class="panel-title">Who is will.i.am, and why is he well known?</h2>
+      <h2 class="panel-title">Reason for Fame</h2>
       <div class="entries">
         <article class="entry">
           <h3>Music</h3>
-          <p>Founded the Black Eyed Peas in 1995 with apl.de.ap and Taboo. The group has won multiple Grammy Awards and topped charts with songs like “I Gotta Feeling” and “Where Is the Love?” He’s also a solo artist and producer for artists like Michael Jackson, Britney Spears, and Usher. <span class="cite">(GRAMMY.com, AllMusic)</span></p>
+          <p>Founded the Black Eyed Peas in 1995 with apl.de.ap and Taboo. The group has won multiple Grammy Awards and topped charts with songs like “I Gotta Feeling” and “Where Is the Love?” He’s also a solo artist and producer for artists like Michael Jackson, Britney Spears, and Usher. <span class="cite">(AllMusic, n.d.; Recording Academy, n.d.)</span></p>
         </article>
         <article class="entry">
           <h3>Technology</h3>
-          <p>Founded i.am+, a consumer tech company focused on wearables. His song “Reach for the Stars” was streamed from Mars via NASA’s Curiosity Rover — a first. In 2024 he completed Harvard Business School’s Executive Education program. <span class="cite">(National Today, AfroTech)</span></p>
+          <p>Founded i.am+, a consumer tech company focused on wearables. His song “Reach for the Stars” was streamed from Mars via NASA’s Curiosity Rover — a first. In 2024 he completed Harvard Business School’s Executive Education program. <span class="cite">(Dorisca, 2024; National Today, n.d.)</span></p>
         </article>
         <article class="entry">
           <h3>Philanthropy</h3>
-          <p>Founded the i.am Angel Foundation in 2009, which funds STEAM education and college scholarships for underserved students, with a focus on his home neighborhood of Boyle Heights. <span class="cite">(Understood.org)</span></p>
+          <p>Founded the i.am Angel Foundation in 2009, which funds STEAM education and college scholarships for underserved students, with a focus on his home neighborhood of Boyle Heights. <span class="cite">(The Understood Team, n.d.)</span></p>
         </article>
       </div>
     </section>
 
     <!-- 03 — ADHD Experience -->
     <section class="panel" id="panel-adhd" role="tabpanel" aria-labelledby="tab-adhd" tabindex="0" hidden>
-      <p class="kicker">Key Element 2 — Disability Experience</p>
-      <h2 class="panel-title">His experience with ADHD</h2>
+      <h2 class="panel-title">ADHD</h2>
       <blockquote>
         Teachers pushed him to “focus better” because of his hyperactivity.
         <cite>as recalled in “The Disruptors” (2022)</cite>
       </blockquote>
       <div class="prose">
-        <p><strong>In his own words.</strong> As a kid, teachers pushed him to “focus better” because of his hyperactivity, he recalled in the 2022 ADHD documentary “The Disruptors.” He has described struggling to sit still and to hold his attention on one thing at a time.</p>
-        <p><strong>How he copes.</strong> will.i.am has said music itself helps quiet his mind and gives his racing thoughts somewhere to go, describing it as a way of managing his ADHD day to day.</p>
+        <p><strong>In his own words.</strong> As a kid, teachers pushed him to “focus better” because of his hyperactivity, he recalled in the 2022 ADHD documentary “The Disruptors.” He has described struggling to sit still and to hold his attention on one thing at a time. <span class="needs-cite">citation needed</span></p>
+        <p><strong>How he copes.</strong> will.i.am has said music itself helps quiet his mind and gives his racing thoughts somewhere to go, describing it as a way of managing his ADHD day to day. <span class="cite">(The Understood Team, n.d.)</span></p>
       </div>
     </section>
 
     <!-- 04 — Disability & Identity -->
     <section class="panel" id="panel-identity" role="tabpanel" aria-labelledby="tab-identity" tabindex="0" hidden>
-      <p class="kicker">Disability &amp; Identity</p>
-      <h2 class="panel-title">How ADHD shows up in his work</h2>
+      <h2 class="panel-title">Identity</h2>
       <div class="entries">
         <article class="entry">
           <h3>Creative energy</h3>
-          <p>He’s described the restlessness and constant idea-jumping of ADHD as an asset in the studio and in creative meetings — traits visible across his parallel careers in music, tech, and business. <span class="cite">(Understood.org)</span></p>
+          <p>He’s described the restlessness and constant idea-jumping of ADHD as an asset in the studio and in creative meetings — traits visible across his parallel careers in music, tech, and business. <span class="cite">(The Understood Team, n.d.)</span></p>
         </article>
         <article class="entry">
           <h3>Advocacy</h3>
-          <p>His i.am Angel Foundation funds STEAM education and college scholarships for underserved kids, reflecting his own path from a low-income neighborhood into opportunity. <span class="cite">(Understood.org, National Today)</span></p>
+          <p>His i.am Angel Foundation funds STEAM education and college scholarships for underserved kids, reflecting his own path from a low-income neighborhood into opportunity. <span class="cite">(National Today, n.d.; The Understood Team, n.d.)</span></p>
         </article>
         <article class="entry">
           <h3>Openness</h3>
-          <p>By discussing his ADHD in interviews and in the 2022 documentary “The Disruptors,” he’s helped normalize the diagnosis for other public figures and fans. <span class="cite">(PressReader/Stamford Advocate)</span></p>
+          <p>By discussing his ADHD openly in interviews <span class="cite">(The Diary of a CEO, 2023)</span> and in the 2022 documentary “The Disruptors” <span class="needs-cite">citation needed</span>, he’s helped normalize the diagnosis for other public figures and fans.</p>
         </article>
       </div>
     </section>
 
     <!-- 05 — Character -->
     <section class="panel" id="panel-character" role="tabpanel" aria-labelledby="tab-character" tabindex="0" hidden>
-      <p class="kicker">Key Element 5 — Strengths, Opportunities &amp; Challenges</p>
-      <h2 class="panel-title">Character &amp; personality</h2>
+      <h2 class="panel-title">Character</h2>
       <div class="entries">
         <article class="entry">
           <h3>Strengths</h3>
@@ -687,28 +724,26 @@
 
     <!-- 06 — Relationships -->
     <section class="panel" id="panel-relationships" role="tabpanel" aria-labelledby="tab-relationships" tabindex="0" hidden>
-      <p class="kicker">Key Element 4 — Significant Relationships</p>
-      <h2 class="panel-title">People who shaped his path</h2>
+      <h2 class="panel-title">Relationships</h2>
       <div class="entries">
         <article class="entry">
           <h3>His mother, Debra</h3>
-          <p>Raised him alone after his father left; enrolled him in a charter school and steered him away from local gangs. He calls her a constant source of encouragement. <span class="cite">(Understood.org)</span></p>
+          <p>Raised him alone after his father left; enrolled him in a charter school and steered him away from local gangs. He calls her a constant source of encouragement. <span class="cite">(The Understood Team, n.d.)</span></p>
         </article>
         <article class="entry">
           <h3>apl.de.ap &amp; Taboo</h3>
-          <p>Met apl.de.ap at Palisades Charter High School; the two later co-founded the Black Eyed Peas with Taboo in 1995. <span class="cite">(AllMusic, ClassicRockHistory.com)</span></p>
+          <p>Met apl.de.ap at Palisades Charter High School; the two later co-founded the Black Eyed Peas with Taboo in 1995. <span class="cite">(AllMusic, n.d.; Scavieli, 2024)</span></p>
         </article>
         <article class="entry">
           <h3>Fergie</h3>
-          <p>Joined the Black Eyed Peas in 2002, becoming a key vocalist during the group’s biggest commercial run. <span class="cite">(AllMusic, ClassicRockHistory.com)</span></p>
+          <p>Joined the Black Eyed Peas in 2002, becoming a key vocalist during the group’s biggest commercial run. <span class="cite">(AllMusic, n.d.; Scavieli, 2024)</span></p>
         </article>
       </div>
     </section>
 
     <!-- 07 — Reflection -->
     <section class="panel" id="panel-reflection" role="tabpanel" aria-labelledby="tab-reflection" tabindex="0" hidden>
-      <p class="kicker">Reflection &amp; Connection</p>
-      <h2 class="panel-title">Why this person, why now?</h2>
+      <h2 class="panel-title">Reflection</h2>
       <div class="reflect">
         <div class="reflect-item">
           <q>What drew you to will.i.am specifically?</q>
@@ -727,45 +762,31 @@
 
     <!-- 08 — Sources -->
     <section class="panel" id="panel-sources" role="tabpanel" aria-labelledby="tab-sources" tabindex="0" hidden>
-      <p class="kicker">Use of Resources &amp; Citations</p>
       <h2 class="panel-title">Sources</h2>
-      <ul class="sources">
-        <li data-n="01">
-          <div>
-            <h3>Understood.org — “Celebrity spotlight: Why will.i.am says ADHD fuels his creativity”</h3>
-            <a href="https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity" target="_blank" rel="noopener">understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity</a>
-          </div>
-        </li>
-        <li data-n="02">
-          <div>
-            <h3>GRAMMY.com — official artist bio and awards history</h3>
-            <a href="https://www.grammy.com/artists/william" target="_blank" rel="noopener">grammy.com/artists/william</a>
-          </div>
-        </li>
-        <li data-n="03">
-          <div>
-            <h3>AllMusic — will.i.am biography and discography</h3>
-            <a href="https://www.allmusic.com/artist/william-mn0000691648" target="_blank" rel="noopener">allmusic.com/artist/william-mn0000691648</a>
-          </div>
-        </li>
-        <li data-n="04">
-          <div>
-            <h3>Stamford Advocate (via PressReader) — coverage of the ADHD documentary “The Disruptors” (2022)</h3>
-            <p class="note">pressreader.com — search “The Disruptors will.i.am ADHD”</p>
-          </div>
-        </li>
-        <li data-n="05">
-          <div>
-            <h3>AfroTech — on completing Harvard Business School’s Executive Education program</h3>
-            <p class="note">afrotech.com — search “will.i.am Harvard Business School”</p>
-          </div>
-        </li>
-      </ul>
+      <p class="refs-intro">All sources are listed below in APA 7th edition format. In-text citations throughout the site correspond to these entries.</p>
 
       <div class="refs">
         <h3>References</h3>
-        <p>Biography.com Editors. (2020, June 19). <em>Will.i.am — Songs, movies &amp; albums</em>. Biography.com. <a href="https://www.biography.com/musicians/will-i-am" target="_blank" rel="noopener">https://www.biography.com/musicians/will-i-am</a></p>
+        <p>AllMusic. (n.d.). <em>will.i.am</em>. AllMusic. <a href="https://www.allmusic.com/artist/william-mn0000691648" target="_blank" rel="noopener">https://www.allmusic.com/artist/william-mn0000691648</a></p>
+
+        <p>Biography.com Editors. (2020, June 19). <em>Will.i.am: Songs, movies &amp; albums</em>. Biography. <a href="https://www.biography.com/musicians/will-i-am" target="_blank" rel="noopener">https://www.biography.com/musicians/will-i-am</a></p>
+
+        <p>The Diary of a CEO. (2023, July 31). <em>will.i.am opens up: Depression, creativity &amp; ADHD!</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=1m-2QhqdlfI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=1m-2QhqdlfI</a></p>
+
+        <p>Dorisca, S. (2024, October 28). <em>Will.i.am missed out on a high school diploma due to signing a record deal, but today he is a graduate of Harvard Business School</em>. AfroTech. <a href="https://afrotech.com/will-i-am-harvard-business-school-2" target="_blank" rel="noopener">https://afrotech.com/will-i-am-harvard-business-school-2</a></p>
+
+        <p>National Today. (n.d.). <em>will.i.am birthday</em>. National Today. <a href="https://nationaltoday.com/birthday/will-i-am/" target="_blank" rel="noopener">https://nationaltoday.com/birthday/will-i-am/</a></p>
+
+        <p>Recording Academy. (n.d.). <em>will.i.am: Grammy awards and nominations, song &amp; bio</em>. GRAMMY.com. <a href="https://www.grammy.com/artists/william/367/" target="_blank" rel="noopener">https://www.grammy.com/artists/william/367/</a></p>
+
+        <p>Scavieli, T. (2024, July 14). <em>Complete list of Black Eyed Peas band members</em>. ClassicRockHistory.com. <a href="https://www.classicrockhistory.com/complete-list-of-black-eyed-peas-band-members/" target="_blank" rel="noopener">https://www.classicrockhistory.com/complete-list-of-black-eyed-peas-band-members/</a></p>
+
         <p>The Understood Team. (n.d.). <em>Celebrity spotlight: Why will.i.am says ADHD fuels his creativity</em>. Understood. <a href="https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity" target="_blank" rel="noopener">https://www.understood.org/en/articles/celebrity-spotlight-why-william-says-adhd-fuels-his-creativity</a></p>
+      </div>
+
+      <div class="gap">
+        <h3>Still to resolve</h3>
+        <p>Two claims about the 2022 documentary “The Disruptors” are marked <span class="needs-cite">citation needed</span> on the ADHD and Identity tabs. The deck attributed them to Stamford Advocate coverage via PressReader, but that article could not be located to confirm an author, date, or URL — so no APA entry could be written for it. Either find the article and add it, or cut the claims.</p>
       </div>
     </section>
 
