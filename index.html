@@ -263,6 +263,63 @@
     to   { opacity: 1; transform: none; }
   }
 
+  /* Lead portrait ------------------------------------------------------ */
+  .lead {
+    display: grid;
+    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+    gap: clamp(1.25rem, 3vw, 2.25rem);
+    align-items: end;
+    margin: 0 0 clamp(2.25rem, 5vw, 3.5rem);
+  }
+  @media (max-width: 44rem) {
+    .lead { grid-template-columns: 1fr; align-items: start; }
+    .portrait { max-width: 16rem; }
+  }
+  .portrait {
+    position: relative;
+    margin: 0; /* figure carries a default 40px inline margin */
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: var(--ink-soft);
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.08);
+    transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
+  }
+  .portrait:hover img { filter: none; transform: scale(1.03); }
+  .portrait::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(13, 12, 11, 0.5), transparent 55%);
+  }
+  .lead-meta { padding-bottom: 0.35rem; }
+  .lead-meta .pull {
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    line-height: 1.45;
+    color: var(--paper-dim);
+    font-style: italic;
+    margin: 0 0 0.9rem;
+    max-width: 38ch;
+  }
+  .credit {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    line-height: 1.65;
+    letter-spacing: 0.04em;
+    color: var(--paper-faint);
+    margin: 0;
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--rule);
+    max-width: 38ch;
+  }
+
   .kicker {
     font-family: var(--mono);
     font-size: 0.6875rem;
@@ -498,13 +555,13 @@
       <p class="video-label"><span class="live"></span>Now playing</p>
       <div class="video-frame">
         <iframe
-          src="https://www.youtube-nocookie.com/embed/DGIgXP9SvB8?autoplay=1&mute=1&loop=1&playlist=DGIgXP9SvB8&playsinline=1&rel=0&modestbranding=1"
-          title="will.i.am — #thatPOWER ft. Justin Bieber (official video)"
+          src="https://www.youtube-nocookie.com/embed/WpYeekQkAdc?autoplay=1&mute=1&loop=1&playlist=WpYeekQkAdc&playsinline=1&rel=0&modestbranding=1"
+          title="The Black Eyed Peas — Where Is the Love? (official video)"
           allow="autoplay; encrypted-media; picture-in-picture"
           allowfullscreen
           referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
-      <p class="video-caption"><b>“#thatPOWER” ft. Justin Bieber</b> — starts muted; click the video for sound.</p>
+      <p class="video-caption"><b>The Black Eyed Peas — “Where Is the Love?”</b> — starts muted; click the video for sound.</p>
     </div>
   </header>
 </div>
@@ -529,6 +586,22 @@
     <section class="panel" id="panel-fame" role="tabpanel" aria-labelledby="tab-fame" tabindex="0">
       <p class="kicker">Key Element 1 — Reason for Fame</p>
       <h2 class="panel-title">Who is will.i.am, and why is he well known?</h2>
+
+      <div class="lead">
+        <figure class="portrait">
+          <img
+            src="https://hips.hearstapps.com/hmg-prod/images/william_photo_by_charley_gallay_getty_images_entertainment_getty_84767270.jpg"
+            alt="Portrait of will.i.am"
+            width="500" height="500"
+            loading="eager" decoding="async"
+            referrerpolicy="no-referrer">
+        </figure>
+        <div class="lead-meta">
+          <p class="pull">One career in music, one in technology, one in philanthropy — run in parallel, out of Boyle Heights.</p>
+          <p class="credit">Photo: Charley Gallay / Getty Images Entertainment, via Biography.com (Biography.com Editors, 2020)</p>
+        </div>
+      </div>
+
       <div class="entries">
         <article class="entry">
           <h3>Music</h3>
