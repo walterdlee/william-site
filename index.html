@@ -263,17 +263,16 @@
     to   { opacity: 1; transform: none; }
   }
 
-  /* Lead portrait ------------------------------------------------------ */
-  .lead {
+  /* Portrait + biography layout ---------------------------------------- */
+  .bio {
     display: grid;
-    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
-    gap: clamp(1.25rem, 3vw, 2.25rem);
-    align-items: end;
-    margin: 0 0 clamp(2.25rem, 5vw, 3.5rem);
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    gap: clamp(1.75rem, 4vw, 3rem);
+    align-items: start;
   }
-  @media (max-width: 44rem) {
-    .lead { grid-template-columns: 1fr; align-items: start; }
-    .portrait { max-width: 16rem; }
+  @media (max-width: 52rem) {
+    .bio { grid-template-columns: 1fr; }
+    .bio-figure { max-width: 18rem; }
   }
   .portrait {
     position: relative;
@@ -289,9 +288,7 @@
     object-fit: cover;
     display: block;
     filter: grayscale(1) contrast(1.08);
-    transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
   }
-  .portrait:hover img { filter: none; transform: scale(1.03); }
   .portrait::after {
     content: "";
     position: absolute;
@@ -299,25 +296,20 @@
     pointer-events: none;
     background: linear-gradient(to top, rgba(13, 12, 11, 0.5), transparent 55%);
   }
-  .lead-meta { padding-bottom: 0.35rem; }
-  .lead-meta .pull {
-    font-size: clamp(1.05rem, 2vw, 1.35rem);
-    line-height: 1.45;
-    color: var(--paper-dim);
-    font-style: italic;
-    margin: 0 0 0.9rem;
-    max-width: 38ch;
-  }
   .credit {
     font-family: var(--mono);
     font-size: 0.6875rem;
     line-height: 1.65;
     letter-spacing: 0.04em;
     color: var(--paper-faint);
-    margin: 0;
+    margin: 0.8rem 0 0;
     padding-top: 0.7rem;
     border-top: 1px solid var(--rule);
-    max-width: 38ch;
+  }
+
+  /* Inside .bio the entries stack in the remaining column. */
+  .bio .entries {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   }
 
   .kicker {
@@ -568,8 +560,8 @@
 
 <div class="tabbar">
   <div class="tablist" role="tablist" aria-label="Presentation sections">
-    <button class="tab" role="tab" id="tab-fame"          aria-controls="panel-fame"          aria-selected="true"><span class="num">01</span>Reason for Fame</button>
-    <button class="tab" role="tab" id="tab-background"    aria-controls="panel-background"    aria-selected="false" tabindex="-1"><span class="num">02</span>Background</button>
+    <button class="tab" role="tab" id="tab-background"    aria-controls="panel-background"    aria-selected="true"><span class="num">01</span>Background</button>
+    <button class="tab" role="tab" id="tab-fame"          aria-controls="panel-fame"          aria-selected="false" tabindex="-1"><span class="num">02</span>Reason for Fame</button>
     <button class="tab" role="tab" id="tab-adhd"          aria-controls="panel-adhd"          aria-selected="false" tabindex="-1"><span class="num">03</span>ADHD</button>
     <button class="tab" role="tab" id="tab-identity"      aria-controls="panel-identity"      aria-selected="false" tabindex="-1"><span class="num">04</span>Identity</button>
     <button class="tab" role="tab" id="tab-character"     aria-controls="panel-character"     aria-selected="false" tabindex="-1"><span class="num">05</span>Character</button>
@@ -582,47 +574,23 @@
 <div class="shell">
   <main>
 
-    <!-- 01 — Reason for Fame -->
-    <section class="panel" id="panel-fame" role="tabpanel" aria-labelledby="tab-fame" tabindex="0">
-      <p class="kicker">Key Element 1 — Reason for Fame</p>
-      <h2 class="panel-title">Who is will.i.am, and why is he well known?</h2>
-
-      <div class="lead">
-        <figure class="portrait">
-          <img
-            src="https://hips.hearstapps.com/hmg-prod/images/william_photo_by_charley_gallay_getty_images_entertainment_getty_84767270.jpg"
-            alt="Portrait of will.i.am"
-            width="500" height="500"
-            loading="eager" decoding="async"
-            referrerpolicy="no-referrer">
-        </figure>
-        <div class="lead-meta">
-          <p class="pull">One career in music, one in technology, one in philanthropy — run in parallel, out of Boyle Heights.</p>
-          <p class="credit">Photo: Charley Gallay / Getty Images Entertainment, via Biography.com (Biography.com Editors, 2020)</p>
-        </div>
-      </div>
-
-      <div class="entries">
-        <article class="entry">
-          <h3>Music</h3>
-          <p>Founded the Black Eyed Peas in 1995 with apl.de.ap and Taboo. The group has won multiple Grammy Awards and topped charts with songs like “I Gotta Feeling” and “Where Is the Love?” He’s also a solo artist and producer for artists like Michael Jackson, Britney Spears, and Usher. <span class="cite">(GRAMMY.com, AllMusic)</span></p>
-        </article>
-        <article class="entry">
-          <h3>Technology</h3>
-          <p>Founded i.am+, a consumer tech company focused on wearables. His song “Reach for the Stars” was streamed from Mars via NASA’s Curiosity Rover — a first. In 2024 he completed Harvard Business School’s Executive Education program. <span class="cite">(National Today, AfroTech)</span></p>
-        </article>
-        <article class="entry">
-          <h3>Philanthropy</h3>
-          <p>Founded the i.am Angel Foundation in 2009, which funds STEAM education and college scholarships for underserved students, with a focus on his home neighborhood of Boyle Heights. <span class="cite">(Understood.org)</span></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- 02 — Background -->
-    <section class="panel" id="panel-background" role="tabpanel" aria-labelledby="tab-background" tabindex="0" hidden>
+    <!-- 01 — Background -->
+    <section class="panel" id="panel-background" role="tabpanel" aria-labelledby="tab-background" tabindex="0">
       <p class="kicker">Important Events — Background &amp; Childhood</p>
       <h2 class="panel-title">Where he came from</h2>
-      <div class="entries">
+      <div class="bio">
+        <div class="bio-figure">
+          <figure class="portrait">
+            <img
+              src="https://hips.hearstapps.com/hmg-prod/images/william_photo_by_charley_gallay_getty_images_entertainment_getty_84767270.jpg"
+              alt="Portrait of will.i.am"
+              width="500" height="500"
+              loading="eager" decoding="async"
+              referrerpolicy="no-referrer">
+          </figure>
+          <p class="credit">Photo: Charley Gallay / Getty Images Entertainment, via Biography.com (Biography.com Editors, 2020)</p>
+        </div>
+        <div class="entries">
         <article class="entry">
           <h3>Born</h3>
           <p>William James Adams Jr., March 15, 1975, in Los Angeles — raised in the Estrada Courts housing projects, Boyle Heights (East LA). <span class="cite">(National Today)</span></p>
@@ -638,6 +606,27 @@
         <article class="entry">
           <h3>Turning point</h3>
           <p>Was performing with a rap group by the eighth grade. That group evolved into the Black Eyed Peas, formed in 1995 with apl.de.ap and Taboo. <span class="cite">(Biography.com, AllMusic)</span></p>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — Reason for Fame -->
+    <section class="panel" id="panel-fame" role="tabpanel" aria-labelledby="tab-fame" tabindex="0" hidden>
+      <p class="kicker">Key Element 1 — Reason for Fame</p>
+      <h2 class="panel-title">Who is will.i.am, and why is he well known?</h2>
+      <div class="entries">
+        <article class="entry">
+          <h3>Music</h3>
+          <p>Founded the Black Eyed Peas in 1995 with apl.de.ap and Taboo. The group has won multiple Grammy Awards and topped charts with songs like “I Gotta Feeling” and “Where Is the Love?” He’s also a solo artist and producer for artists like Michael Jackson, Britney Spears, and Usher. <span class="cite">(GRAMMY.com, AllMusic)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Technology</h3>
+          <p>Founded i.am+, a consumer tech company focused on wearables. His song “Reach for the Stars” was streamed from Mars via NASA’s Curiosity Rover — a first. In 2024 he completed Harvard Business School’s Executive Education program. <span class="cite">(National Today, AfroTech)</span></p>
+        </article>
+        <article class="entry">
+          <h3>Philanthropy</h3>
+          <p>Founded the i.am Angel Foundation in 2009, which funds STEAM education and college scholarships for underserved students, with a focus on his home neighborhood of Boyle Heights. <span class="cite">(Understood.org)</span></p>
         </article>
       </div>
     </section>
